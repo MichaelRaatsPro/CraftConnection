@@ -1,11 +1,15 @@
+'use client'
+
 import React from 'react';
 import Link from "next/link";
-import Image from 'next/image';
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
+
+  const pathname = usePathname();
+
   return (
     <nav className="bg-gray-800">
-
         <div className="relative flex h-16 items-center justify-between" style = {{backgroundColor: "#194677", justifyContent: "center"}}>
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button type="button" className="relative inline-flex rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -15,7 +19,6 @@ const Navbar = () => {
               <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
-           
               <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -23,7 +26,7 @@ const Navbar = () => {
           </div>
           <div className="flex flex-1 sm:items-stretch sm:justify-start"  style = {{alignItems: "center"}}>
             <div className="flex flex-shrink-0">
-              <img className="h-9 w-auto" src="/webLogoWhite.svg" alt="Brand Logo"/>
+              <img className="h-10 w-auto" src="/webLogoWhite.svg" alt="Brand Logo" style = {{marginLeft: "1em"}}/>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -72,7 +75,6 @@ const Navbar = () => {
                 </button>
               </div>
 
-             
               <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-0">Your Profile</a>
                 <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-1">Settings</a>
@@ -85,7 +87,7 @@ const Navbar = () => {
 
       <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-         
+
         <Link href={"/"} className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</Link>
           <Link href={"/home"} className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</Link>
           <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
@@ -98,3 +100,26 @@ const Navbar = () => {
 
 export default Navbar;
 
+// 'use client'
+ 
+// import { usePathname } from 'next/navigation'
+// import Link from 'next/link'
+ 
+// export function Links() {
+//   const pathname = usePathname()
+ 
+//   return (
+//     <nav>
+//       <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
+//         Home
+//       </Link>
+ 
+//       <Link
+//         className={`link ${pathname === '/about' ? 'active' : ''}`}
+//         href="/about"
+//       >
+//         About
+//       </Link>
+//     </nav>
+//   )
+// }
