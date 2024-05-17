@@ -1,5 +1,3 @@
-'use client'
-
 import Post from "./components/Post";
 import React from "react";
 import "../firebaseConfig.js";
