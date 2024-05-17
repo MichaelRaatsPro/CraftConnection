@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
         <div className="flex flex-1 sm:items-stretch sm:justify-start" style={{ alignItems: "center" }}>
           <div className="flex flex-shrink-0">
-            <img className="h-10 w-auto" src="/webLogoWhite.svg" alt="Brand Logo" style={{ marginLeft: "1em" }} />
+            <img className="h-12 w-auto" src="/webLogoWhite.svg" alt="Brand Logo" style={{ marginLeft: "1em" }} />
           </div>
           <div className="hidden sm:ml-6 sm:block">
             <div className="flex space-x-4">

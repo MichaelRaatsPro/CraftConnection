@@ -1,9 +1,9 @@
 import React from 'react'
-import "./components.css"
+import "./Components.css"
 
 const Post = () => {
   return (
-    <div className='postContainer'>
+    <div className='postContainer' style = {{maxHeight: "20vh",maxWidth: "20vw", margin: "20px", overflow: "auto", cursor: "pointer"}}>
         <p>
 🎧 Tracks list: 
 00:00 - Overtaken 
@@ -39,6 +39,18 @@ const Post = () => {
 01:01:58 - 11 Supernovas </p>
     </div>
   )
+}
+
+function growDiv() {
+  const div = document.querySelector('.clickable-div');
+  if (div) {
+    const currentWidth = div.offsetWidth;
+    const currentHeight = div.offsetHeight;
+    const newWidth = currentWidth + 50; // Increase width by 50px
+    const newHeight = currentHeight + 50; // Increase height by 50px
+    div.style.width = newWidth + 'px';
+    div.style.height = newHeight + 'px';
+  }
 }
 
 export default Post
