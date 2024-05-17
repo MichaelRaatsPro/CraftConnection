@@ -1,5 +1,10 @@
 .postContainer{
     border: solid 10px black;
     max-width: 20vw;
-    max-height: 20vh;
+}
+
+@media (max-width: 600px) {
+    .postContainer {
+        max-width: 100%; /* Change max-width for phone screens */
+    }
 }

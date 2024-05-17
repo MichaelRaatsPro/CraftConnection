@@ -1,5 +1,9 @@
+'use client'
+
 import Post from "./components/Post";
 import React from "react";
+import "../firebaseConfig.js";
+
 export default function Home() {
   return (
     <>
