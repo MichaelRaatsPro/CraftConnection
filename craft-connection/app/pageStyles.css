@@ -1,0 +1,6 @@
+.landing{
+    /* min-height: 100vh; */
+    background-image: url('../public/website-background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

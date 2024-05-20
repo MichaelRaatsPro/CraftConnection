@@ -1,12 +1,14 @@
 import Post from "./components/Post";
 import React from "react";
 import "../firebaseConfig.js";
+import "./pageStyles.css"
+import SignInForm from "./components/SignInForm";
 
 export default function Home() {
   return (
     <>
-      <div className = "feed" style = {{ display: 'flex', justifyContent: 'center' }}>
-        <Post/>
+      <div className = "landing" style = {{ display: 'flex', justifyContent: 'center'}}>
+        <SignInForm/>
       </div>
     </>
   );
