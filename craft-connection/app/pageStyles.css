@@ -1,6 +1,6 @@
-.landing{
-    /* min-height: 100vh; */
+.landing ,.createProfile{
+    min-height: 100vh;
     background-image: url('../public/website-background.png');
-    background-size: contain;
+    background-size: 100% auto;
     background-repeat: no-repeat;
 }
