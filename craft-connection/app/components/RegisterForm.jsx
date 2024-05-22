@@ -1,14 +1,15 @@
 "use client";
 import React, { useContext } from "react";
 import { SpeechContext, SpeechProvider } from './SpeechContext.jsx';
+import handleSignUp from "../firebase/createUser.jsx";
 
 const RegisterForm = () => {
   const { setSpeechMessage } = useContext(SpeechContext);
-
-  const handleSubmit = (event) => {
+ 
+  const handleSubmit =  async (event) => {
     event.preventDefault(); // Prevent default form submission
     console.log("button pushed");
-
+    const validInputs = true;
     const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
@@ -18,7 +19,11 @@ const RegisterForm = () => {
       setSpeechMessage("Passwords are not matching 😲");
       return;
     } else {
-      setSpeechMessage("Success! Your account has been created.");
+      setSpeechMessage("Success! Your account has been created!");
+    }
+    if (validInputs){
+      await handleSignUp(username, email, password);
+      console.log("create user ran");
     }
   };
 

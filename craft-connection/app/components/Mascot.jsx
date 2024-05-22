@@ -5,7 +5,7 @@ import { SpeechContext } from './SpeechContext.jsx';
  
 const Mascot = (isVis) => {
   const { speechMessage } = useContext(SpeechContext);
-  const [isVisible, setIsVisible] = useState(false); 
+  const [isVisible, setIsVisible] = useState(true); 
 
   const mascotStyle =  {
     position: "absolute",
@@ -44,6 +44,7 @@ const Mascot = (isVis) => {
           height: "30%", 
           resize: "none" ,
           border: "none",
+          fontSize: "22px"
         }} 
         value={speechMessage}
       />
