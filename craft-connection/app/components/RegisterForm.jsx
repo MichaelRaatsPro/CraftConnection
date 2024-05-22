@@ -1,41 +1,40 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useContext } from "react";
+import { SpeechContext, SpeechProvider } from './SpeechContext.jsx';
 
 const RegisterForm = () => {
-
-  const [errorMessage,setErrorMessage] = useState("hello"); 
+  const { setSpeechMessage } = useContext(SpeechContext);
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission
     console.log("button pushed");
-    // Access form field values using event.target
+
     const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmPassword.value;
-    
-    // Check if passwords match
+
     if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match");
+      setSpeechMessage("Passwords are not matching 😲");
       return;
-    }else{
-      setErrorMessage("aweh my bru this is a long message to test")
+    } else {
+      setSpeechMessage("Success! Your account has been created.");
     }
-    
-  
   };
+
 
   return (
     <div className="flex justify-center">
-      <img src = "/errorHandler.svg" style = {{position: "absolute", top: "20vh" ,right: "11vw", height: "25em", zIndex: "1"}}/>
-      <textarea readOnly id = "errorSpeech" style = {{position: "absolute", top: "22vh" ,right: "21vw", zIndex: "2", width: "11em" , height: "7em", resize: "none"}}>{errorMessage}</textarea>
       <section
         className="bg-gray-50 dark:bg-gray-900"
         style={{ background: "none", padding: "0" }}
       >
         <div className="flex flex-col mx-auto md:h-auto py-10 w-full sm:w-96">
           <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8" style={{ borderRadius: "10px", backgroundColor: "white" }}>
+            <div 
+              className="p-6 space-y-4 md:space-y-6 sm:p-8" 
+              style={{ borderRadius: "10px", border: "solid black", background:  "#73C0E8"}}
+            >
               <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create an account
               </h1>

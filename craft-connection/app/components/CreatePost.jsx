@@ -49,24 +49,23 @@ const NewPost = () => {
   return (
     <div
       style={{
-        backgroundColor: "white",
+        backgroundColor: "#73C0E8",
         borderRadius: "20px",
         overflow: "hidden",
+        border: "solid black",
       }}
     >
-      <div className="heading text-center font-bold text-2xl text-gray-800">
-        Create A Post
-      </div>
+
 
       <div
         className="editor mx-auto flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl"
-        style={{ width: "80vw", height: "80vh" }}
+        style={{ width: "80vw", height: "80vh",borderRadius: "20px" }}
       >
         <div className="flex justify-center items-center mb-4">
           <img
             src={preview}
             alt="Preview"
-            style={{ height: "300px", width: "300px" }}
+            style={{ height: "300px", width: "300px",borderRadius: "20px",}}
           />
         </div>
         <UploadFileForm onFileUpload={handleFileUpload} />

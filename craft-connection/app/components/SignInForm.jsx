@@ -1,18 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import "../globals.css";
 
 const SignInForm = () =>{
   return (
     <div className="flex justify-center  h-screen">
       <section
         className="bg-gray-50 dark:bg-gray-900"
-        style={{ background: "none", padding: "0" }} // Removed 'top: 0'
+        style={{ background: "none", padding: "0"}} // Removed 'top: 0'
       >
         <div className="flex flex-col mx-auto md:h-auto py-10 w-full sm:w-96"> {/* here is where the width is being set */}
           <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div
               className="p-6 space-y-4 md:space-y-6 sm:p-8"
-              style={{ borderRadius: "10px", backgroundColor: "white" }}
+              style={{ borderRadius: "10px", border: "solid black", background:  "#73C0E8"
+            }}
             >
               <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign In
@@ -64,7 +66,7 @@ const SignInForm = () =>{
                     <div className="ml-3 text-sm">
                       <label
                         htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
+                        className="text-black-500 dark:text-black-300"
                       >
                         Remember me
                       </label>
@@ -84,7 +86,7 @@ const SignInForm = () =>{
                 >
                   Sign in
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <p className="text-sm font-light text-black-500 dark:text-black-400">
                   Don’t have an account yet?{" "}
                   <Link
                     href="/createProfile"

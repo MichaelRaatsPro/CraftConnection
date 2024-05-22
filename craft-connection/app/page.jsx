@@ -1,5 +1,6 @@
+//landing page
 import Post from "./components/Post";
-import React from "react";
+import React, { useContext } from "react";
 import "../firebaseConfig.js";
 import "./pageStyles.css"
 import SignInForm from "./components/SignInForm";
