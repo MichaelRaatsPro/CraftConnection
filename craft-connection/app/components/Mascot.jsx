@@ -24,7 +24,7 @@ const Mascot = (isVis) => {
     <>
     <div style = {mascotStyle}>
       <img 
-        src="/mascot.svg" 
+        src = {speechMessage.includes("Error")? "/mascotError.png" : "/mascot.png"} 
         style={{  
           border: "none",
           width: "100%",
@@ -44,7 +44,8 @@ const Mascot = (isVis) => {
           height: "30%", 
           resize: "none" ,
           border: "none",
-          fontSize: "22px"
+          fontSize: "20px",
+          overflow: "hidden"
         }} 
         value={speechMessage}
       />

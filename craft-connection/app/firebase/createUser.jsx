@@ -1,35 +1,22 @@
-import React from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
+import {auth, app } from '@/firebaseConfig';
 
-
-const handleSignUp = async (username, email, password) => {
+const handleSignUp = async (username, email, password, setSpeechMessage) => {
   console.log("running CreateUser");
-  const handleSignUp = async () => {
-    const auth = getAuth();
-    const firestore = getFirestore();
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-      // Store additional user information in Firestore
-      await setDoc(doc(firestore, "users", user.uid), {
-        username: username,
-        email: email,
-      });
+    // Set the display name for the newly created user
+    await updateProfile(user, { displayName: username });
 
-      console.log('User signed up and additional info stored:', user);
-    } catch (error) {
-      console.error('Error signing up:', error.code, error.message);
-    }
-  };
-
-  return (
-    <div>
-      <button onClick={handleSignUp}>Sign Up</button>
-    </div>
-  );
+    console.log('User signed up and additional info stored:', user);
+    setSpeechMessage("Success! Your account has been created!");
+  } catch (error) {
+    console.error('Error signing up:', error.code, error.message);
+    setSpeechMessage(`${error.message}`);
+  }
 };
 
 export default handleSignUp;

@@ -1,15 +1,14 @@
 "use client";
 import React, { useContext } from "react";
-import { SpeechContext, SpeechProvider } from './SpeechContext.jsx';
+import { SpeechContext } from './SpeechContext.jsx';
 import handleSignUp from "../firebase/createUser.jsx";
 
 const RegisterForm = () => {
   const { setSpeechMessage } = useContext(SpeechContext);
  
-  const handleSubmit =  async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission
     console.log("button pushed");
-    const validInputs = true;
     const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
@@ -17,16 +16,13 @@ const RegisterForm = () => {
 
     if (password !== confirmPassword) {
       setSpeechMessage("Passwords are not matching 😲");
-      return;
-    } else {
-      setSpeechMessage("Success! Your account has been created!");
-    }
-    if (validInputs){
-      await handleSignUp(username, email, password);
-      console.log("create user ran");
+    }else if (password.length < 6 ){
+      setSpeechMessage("Passwords should be at least 6 characters");
+    }else{
+    await handleSignUp(username, email, password, setSpeechMessage); // Pass setSpeechMessage here
+    console.log("create user ran");
     }
   };
-
 
   return (
     <div className="flex justify-center">
